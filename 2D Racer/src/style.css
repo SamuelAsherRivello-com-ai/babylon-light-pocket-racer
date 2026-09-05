@@ -13,3 +13,63 @@
 @media(max-width:1000px){.lap-meter{bottom:22px;width:calc(100% - 76px)}.driving-hint{bottom:83px}.speed-box{bottom:83px}}
 @media(max-width:700px){.wordmark{padding:8px 10px;font-size:12px;gap:8px}.flag-icon{width:21px;height:21px}.lap-meter{width:calc(100% - 40px);bottom:20px}.race-stats{padding:10px 12px;gap:18px}.speed-box{padding:10px 13px;min-width:112px}.driving-hint{padding:8px 10px;gap:4px;font-size:7px}}
 @media(max-width:420px){.speed-box{bottom:132px}.driving-hint{bottom:80px}.wordmark{font-size:11px;gap:7px}.sound-button{font-size:8px;padding:8px 10px}.race-stats{gap:12px}}
+/* A shared portrait playfield keeps the track, HUD and touch controls together. */
+html,body{width:100%;height:100%;min-width:0;background:#182522}
+body{display:grid;place-items:center;min-height:100vh;min-height:100dvh;overscroll-behavior:none}
+.game-frame{position:relative;width:min(100vw,56.25vh);width:min(100vw,56.25dvh);aspect-ratio:9/16;overflow:hidden;container-type:inline-size;background:#a8cf7c;box-shadow:0 20px 80px #0008;--edge:max(12px,3.5cqw);--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px)}
+#game{width:100%;height:100%;touch-action:none}
+.game-ui{position:absolute;inset:0}
+.topbar{padding:calc(12px + var(--safe-top)) var(--edge);gap:8px}
+.wordmark{padding:8px;gap:7px;font-size:clamp(8px,2.8cqw,13px);white-space:nowrap}
+.flag-icon{width:19px;height:19px;flex-shrink:0}
+.edition,.track-stamp,.driving-hint{display:none}
+.sound-button{padding:8px;font-size:clamp(7px,2cqw,10px);white-space:nowrap}
+.sound-button span{padding-left:3px}
+.menu-panel,.multiplayer-ui .menu-panel,.lobby-panel{left:var(--edge);right:var(--edge);top:calc(76px + var(--safe-top));bottom:auto;transform:none;width:auto;max-height:calc(100% - 112px - var(--safe-top) - var(--safe-bottom));overflow:auto;overscroll-behavior:contain;padding:clamp(14px,5cqw,26px);scrollbar-width:thin}
+h1{font-size:clamp(42px,19cqw,82px);margin:18px 0}
+.intro{font-size:clamp(11px,3.4cqw,14px);margin-bottom:16px}
+.challenge{padding:12px 0;margin-bottom:18px}
+.challenge strong{font-size:clamp(22px,7.5cqw,31px)}
+.challenge span{font-size:clamp(6px,1.9cqw,8px);letter-spacing:.6px}
+.controls{flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.controls span{font-size:10px}
+.menu-footer{left:var(--edge);right:var(--edge);bottom:calc(13px + var(--safe-bottom));font-size:7px;letter-spacing:1px}
+.menu-footer span:last-child{display:none}
+.timer-box{left:var(--edge);top:calc(74px + var(--safe-top));padding:9px 12px;min-width:0;transform:none}
+.timer-box strong{font-size:clamp(29px,10cqw,46px)}
+.timer-box div>span{font-size:17px}
+.hud-label{font-size:clamp(6px,2cqw,9px);letter-spacing:1px}
+.race-stats{right:var(--edge);top:calc(74px + var(--safe-top));padding:10px;gap:clamp(8px,4cqw,20px)}
+.race-stats strong{font-size:clamp(23px,8cqw,36px)}
+.race-stats small{font-size:clamp(13px,4.5cqw,20px)}
+.lap-meter{left:var(--edge);right:var(--edge);width:auto;transform:none;bottom:calc(105px + var(--safe-bottom));padding:8px 10px}
+.speed-box{right:var(--edge);bottom:calc(158px + var(--safe-bottom));padding:8px 11px;min-width:0}
+.speed-box>strong{font-size:clamp(30px,10cqw,46px)}
+.speed-box>span{font-size:8px;padding-left:4px}
+.surface-label{font-size:8px;margin-top:5px;letter-spacing:.7px}
+.countdown{top:45%}
+.countdown strong{font-size:clamp(65px,28cqw,130px)}
+.result-wrap{padding:calc(70px + var(--safe-top)) var(--edge) calc(20px + var(--safe-bottom));overflow:auto}
+.result-panel{width:100%;max-height:100%;overflow:auto;padding:clamp(15px,5cqw,25px)}
+.result-icon{width:65px;height:65px;font-size:39px;margin:16px auto}
+h2{font-size:clamp(32px,12cqw,52px)}
+.error-panel{width:calc(100% - 28px);max-height:calc(100% - 110px);overflow:auto}
+.virtual-controller{position:absolute;left:var(--edge);right:var(--edge);bottom:calc(18px + var(--safe-bottom));display:none;justify-content:space-between;gap:12px;pointer-events:none;z-index:8;user-select:none;-webkit-user-select:none;touch-action:none}
+.game-ui[data-phase=racing] .virtual-controller,.game-ui[data-phase=countdown] .virtual-controller{display:flex}
+.steering-controls,.pedal-controls{display:flex;gap:7px}
+.virtual-controller button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:clamp(40px,14cqw,68px);height:clamp(58px,19cqw,82px);padding:5px 2px;border:2px solid var(--ink);border-radius:13px;background:#fff9e9ef;color:var(--ink);font-size:clamp(17px,6cqw,27px);font-weight:900;box-shadow:0 5px 0 var(--ink);touch-action:none;pointer-events:auto;-webkit-touch-callout:none}
+.virtual-controller button[data-control=throttle]{background:#d7ef72f5}
+.virtual-controller button[data-control=brake]{background:#ff996ff5}
+.virtual-controller button[aria-pressed=true],.virtual-controller button:active{transform:translateY(4px);box-shadow:0 1px 0 var(--ink);filter:brightness(.88)}
+.virtual-controller button small{font-size:clamp(7px,2cqw,10px);letter-spacing:.4px}
+.multiplayer-ui h1{font-size:clamp(35px,12cqw,52px)}
+.multiplayer-ui .intro{margin-bottom:10px}
+.multiplayer-controls input,.multiplayer-controls select{font-size:16px}
+.host-row,.join-row{grid-template-columns:minmax(74px,.7fr) minmax(0,1.3fr)}
+.secondary{padding:10px 7px;font-size:10px}
+.lobby-panel h2{font-size:clamp(27px,10cqw,40px)}
+.invite-row{gap:8px;flex-wrap:wrap}
+.invite-code{font-size:clamp(23px,8cqw,31px);letter-spacing:4px}
+.member-list li{overflow-wrap:anywhere}
+.leave-race{left:var(--edge);top:auto;bottom:calc(166px + var(--safe-bottom));transform:none;padding:9px;font-size:9px}
+@container(max-width:280px){.topbar{gap:4px;padding-inline:8px}.wordmark{gap:4px;padding:6px}.flag-icon{display:none}.menu-panel,.multiplayer-ui .menu-panel,.lobby-panel{top:59px;max-height:calc(100% - 88px);padding:12px}.timer-box,.race-stats{top:59px;padding:7px}.race-stats{gap:7px}.primary{font-size:11px;padding:11px}.challenge>div+div{padding-left:6px}.eyebrow{font-size:8px;letter-spacing:.8px}.virtual-controller{left:8px;right:8px;gap:6px}.steering-controls,.pedal-controls{gap:5px}.lap-meter{bottom:94px}.speed-box{bottom:143px}.leave-race{bottom:150px}.result-wrap{padding-top:56px}}

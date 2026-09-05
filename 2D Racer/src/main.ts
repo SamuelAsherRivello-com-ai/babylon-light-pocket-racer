@@ -1,4 +1,5 @@
 import './style.css';
+import { createDrivingControls } from './driving-controls';
 import { createRace, startRace, stepRace } from './simulation';
 import { createWorld } from './world';
 import { createUI } from './ui';
@@ -10,7 +11,7 @@ const state = createRace();
 const input: Input = { throttle: false, brake: false, left: false, right: false };
 const audio = createAudio();
 let ready = false;
-const clearInput = () => { input.throttle = input.brake = input.left = input.right = false; };
+const clearInput = () => controls.clear();
 const begin = () => {
   if (!ready) return;
   clearInput();
@@ -21,17 +22,7 @@ const ui = createUI(document.querySelector<HTMLElement>('#ui')!, {
   onStart: begin, onRetry: begin, onMute: (muted) => audio.setMuted(muted),
 });
 ui.update(state);
-const keys: Record<string, keyof Input> = { KeyW: 'throttle', KeyS: 'brake', KeyA: 'left', KeyD: 'right' };
-window.addEventListener('keydown', (e) => {
-  const key = keys[e.code];
-  if (key) { e.preventDefault(); input[key] = true; }
-});
-window.addEventListener('keyup', (e) => {
-  const key = keys[e.code];
-  if (key) { e.preventDefault(); input[key] = false; }
-});
-window.addEventListener('blur', clearInput);
-document.addEventListener('visibilitychange', clearInput);
+const controls = createDrivingControls(document.querySelector<HTMLElement>('#ui')!, input);
 
 async function boot() {
   try {
@@ -52,6 +43,7 @@ async function boot() {
       world.update(state, dt);
       audio.update(state, events, dt);
       ui.update(state);
+      controls.setEnabled(state.phase === 'racing' || state.phase === 'countdown');
       requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);

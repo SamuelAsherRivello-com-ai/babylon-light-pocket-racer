@@ -30,7 +30,7 @@
 ## Getting Started
 
 <!-- AI: Briefly state required tools or prerequisites, using versions supported by the repository. Keep setup steps in the subsections below and use the fewest practical steps. Do not add a separate commands section. -->
-Install Node.js 24 and npm. Playing requires a keyboard and a WebGPU-capable browser/device, such as current Microsoft Edge or Google Chrome.
+Install Node.js 24 and npm. Playing requires a WebGPU-capable browser/device, such as current Microsoft Edge or Google Chrome.
 
 ### 📦 Build Project
 
@@ -51,7 +51,7 @@ Install Node.js 24 and npm. Playing requires a keyboard and a WebGPU-capable bro
 ## Project Overview
 
 <!-- AI: Summarize the project's purpose, main capabilities, and intended use cases. Describe current implementation; label planned capabilities explicitly rather than presenting them as complete. Keep detailed tooling under Project Details. -->
-Drive the yellow car with **W** to accelerate, **S** to brake, and **A/D** to steer. The fixed-angle camera follows your car around a winding track with two jumps. Grass slows you down; tire particles and synthesized sounds react to driving. Complete one valid lap within **30 seconds** to win, regardless of position. Start, win/loss, Retry, and mute controls complete the game flow.
+Drive the yellow car with **W** to accelerate, **S** to brake, and **A/D** to steer. A centered 9:16 play area fits portrait screens and desktop windows. On-screen steering, gas, and brake buttons support simultaneous touches alongside WASD. The fixed-angle camera follows your car around a winding track with two jumps. Grass slows you down; tire particles and synthesized sounds react to driving. Complete one valid lap within **30 seconds** to win, regardless of position. Start, win/loss, Retry, and mute controls complete the game flow.
 
 ### 📝 Documentation
 
