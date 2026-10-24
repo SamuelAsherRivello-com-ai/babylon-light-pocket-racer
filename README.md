@@ -18,7 +18,7 @@ Pocket Racer is a cartoon arcade racing game for keyboard players: finish one la
 ## Demo
 
 <!-- AI: Replace both {demo_url} occurrences with the verified public demo URL. Check deployment configuration or a confirmed deployed site; do not assume a hosting URL. Keep the placeholder if no demo is available. -->
-* [Play Pocket Racer](https://samuelasherrivello.github.io/babylon-light-pocket-racer/)
+* [Play Pocket Racer](https://samuelasherrivello-com-ai.github.io/babylon-light-pocket-racer/)
 
 ## Table of Contents
 
@@ -47,8 +47,8 @@ Install Node.js 24 and npm. Playing requires a WebGPU-capable browser/device, su
 ### 📦 Release Version
 
 <!-- AI: Describe the repository's existing release workflow in the fewest steps, based on checked-in workflows or release scripts. Distinguish builds, tags, releases, and deployment accurately. If no release process exists, retain a placeholder rather than inventing one. Documentation edits do not authorize publishing or changing Git history. -->
-1. Publish a new version tag as a [GitHub Release](https://github.com/SamuelAsherRivello/babylon-light-pocket-racer/releases/new) targeting `main`.
-2. Wait for [Deploy live demo](https://github.com/SamuelAsherRivello/babylon-light-pocket-racer/actions/workflows/deploy-pages.yml), then open the Demo link above.
+1. Publish a new version tag as a [GitHub Release](https://github.com/SamuelAsherRivello-com-ai/babylon-light-pocket-racer/releases/new) targeting `main`.
+2. Wait for [Deploy live demo](https://github.com/SamuelAsherRivello-com-ai/babylon-light-pocket-racer/actions/workflows/deploy-pages.yml), then open the Demo link above.
 
 ## Project Overview
 
