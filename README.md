@@ -2,10 +2,12 @@
 <!-- AI: Preserve the creator banner unless a replacement is requested. Update its relative path if assets move and verify the file exists with matching filename capitalization. -->
 ![Samuel Asher Rivello](2D%20Racer/documentation/samuel-asher-rivello-banner.png)
 
-# 2D Racer
+# Pocket Racer
+
+[![Pocket Racer logo above yellow, cyan, pink and violet toy cars on a grassy circuit](docs/images/game-logo.png)](docs/game-branding.md)
 
 <!-- AI: Replace {PROJECT_NAME} with the requested project display name. Write one short introduction sentence explaining what the project does and who it is for, based on implemented behavior. -->
-2D Racer is a cartoon arcade racing game for keyboard players: finish one lap against three rivals before the thirty-second timer expires.
+Pocket Racer is a cartoon arcade racing game for keyboard players: finish one lap against three rivals before the thirty-second timer expires.
 
 ## Images
 
@@ -16,7 +18,7 @@
 ## Demo
 
 <!-- AI: Replace both {demo_url} occurrences with the verified public demo URL. Check deployment configuration or a confirmed deployed site; do not assume a hosting URL. Keep the placeholder if no demo is available. -->
-* [Play 2D Racer](https://samuelasherrivello.github.io/babylon-light-2d-racer/)
+* [Play Pocket Racer](https://samuelasherrivello.github.io/babylon-light-pocket-racer/)
 
 ## Table of Contents
 
@@ -45,8 +47,8 @@ Install Node.js 24 and npm. Playing requires a WebGPU-capable browser/device, su
 ### 📦 Release Version
 
 <!-- AI: Describe the repository's existing release workflow in the fewest steps, based on checked-in workflows or release scripts. Distinguish builds, tags, releases, and deployment accurately. If no release process exists, retain a placeholder rather than inventing one. Documentation edits do not authorize publishing or changing Git history. -->
-1. Publish a new version tag as a [GitHub Release](https://github.com/SamuelAsherRivello/babylon-light-2d-racer/releases/new) targeting `main`.
-2. Wait for [Deploy live demo](https://github.com/SamuelAsherRivello/babylon-light-2d-racer/actions/workflows/deploy-pages.yml), then open the Demo link above.
+1. Publish a new version tag as a [GitHub Release](https://github.com/SamuelAsherRivello/babylon-light-pocket-racer/releases/new) targeting `main`.
+2. Wait for [Deploy live demo](https://github.com/SamuelAsherRivello/babylon-light-pocket-racer/actions/workflows/deploy-pages.yml), then open the Demo link above.
 
 ## Project Overview
 
