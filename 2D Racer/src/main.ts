@@ -5,6 +5,7 @@ import { createWorld } from './world';
 import { createUI } from './ui';
 import { createAudio } from './audio';
 import type { Input } from './types';
+import { fitPresentationFrame } from './presentation';
 
 const canvas = document.querySelector<HTMLCanvasElement>('#game')!;
 const state = createRace();
@@ -21,6 +22,28 @@ const begin = () => {
 const ui = createUI(document.querySelector<HTMLElement>('#ui')!, {
   onStart: begin, onRetry: begin, onMute: (muted) => audio.setMuted(muted),
 });
+const gameShell = document.querySelector<HTMLElement>('.game-shell')!;
+const fullscreenButton = document.querySelector<HTMLButtonElement>('.fullscreen-button')!;
+const syncPresentation = () => {
+  const fullscreen = Boolean(document.fullscreenElement);
+  if (fullscreen) {
+    const frame = fitPresentationFrame(window.innerWidth, window.innerHeight);
+    gameShell.style.width = `${frame.width}px`;
+    gameShell.style.height = `${frame.height}px`;
+  } else {
+    gameShell.style.removeProperty('width');
+    gameShell.style.removeProperty('height');
+  }
+  fullscreenButton.textContent = fullscreen ? 'EXIT FULLSCREEN' : 'FULLSCREEN';
+  fullscreenButton.setAttribute('aria-label', fullscreen ? 'Exit fullscreen' : 'Enter fullscreen');
+};
+fullscreenButton.addEventListener('click', () => {
+  if (document.fullscreenElement) void document.exitFullscreen();
+  else void document.documentElement.requestFullscreen().catch(() => undefined);
+});
+document.addEventListener('fullscreenchange', syncPresentation);
+window.addEventListener('resize', syncPresentation);
+syncPresentation();
 ui.update(state);
 const controls = createDrivingControls(document.querySelector<HTMLElement>('#ui')!, input);
 

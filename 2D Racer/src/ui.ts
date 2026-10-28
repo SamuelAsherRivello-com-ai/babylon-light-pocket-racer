@@ -3,7 +3,7 @@ import type { RaceState } from './types';
 export function createUI(root: HTMLElement, callbacks: { onStart: () => void; onRetry: () => void; onMute: (muted: boolean) => void }) {
   root.classList.add('game-ui');
   root.innerHTML = `
-    <header class="topbar"><div class="wordmark"><span class="flag-icon" aria-hidden="true"></span> POCKET RALLY <span class="edition">HILLSIDE CUP</span></div><button class="sound-button" aria-label="Mute sound" aria-pressed="false">SOUND ON <span aria-hidden="true">♪</span></button></header>
+    <header class="topbar"><div class="wordmark"><span class="flag-icon" aria-hidden="true"></span> POCKET RALLY <span class="edition">HILLSIDE CUP</span></div><div class="header-actions"><button class="fullscreen-button sound-button" aria-label="Enter fullscreen">FULLSCREEN</button><button class="sound-button" aria-label="Mute sound" aria-pressed="false">SOUND ON <span aria-hidden="true">♪</span></button></div></header>
     <section class="menu-panel" aria-label="Start menu">
       <div class="eyebrow"><span class="live-dot"></span> SMALL CARS. BIG AIR.</div>
       <h1>POCKET<br><span>RALLY.</span></h1>
