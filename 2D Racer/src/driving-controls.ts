@@ -18,7 +18,7 @@ export function createDrivingControls(root: HTMLElement, input: Input) {
   });
   const clear = () => { state.clear(); paint(); };
   buttons.forEach(button => {
-    button.addEventListener('pointerdown', event => {
+    button.addEventListener('pointerdown', (event: PointerEvent) => {
       if (!enabled || event.button !== 0) return;
       event.preventDefault();
       button.setPointerCapture(event.pointerId);
@@ -29,7 +29,7 @@ export function createDrivingControls(root: HTMLElement, input: Input) {
     button.addEventListener('pointerup', release);
     button.addEventListener('pointercancel', release);
     button.addEventListener('lostpointercapture', release);
-    button.addEventListener('contextmenu', event => event.preventDefault());
+    button.addEventListener('contextmenu', (event: MouseEvent) => event.preventDefault());
   });
   const keys: Record<string, keyof Input> = { KeyW: 'throttle', KeyS: 'brake', KeyA: 'left', KeyD: 'right' };
   window.addEventListener('keydown', event => {
